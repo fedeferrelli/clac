@@ -14,7 +14,7 @@ function Monto() {
 
         <div className=" bg-slate-800 w-full min-h-screen">
 
-        {info && <div className="w-full h-screen fixed z-1 bg-white/60 flex"> 
+        {info && <div className="w-full h-screen fixed z-1 bg-white/20 flex"> 
         <div className="w-3/4 bg-slate-800 m-auto p-4 shadow-lg">
             <p className="text-center text-white text-lg font-semibold py-2">
                 ¿Querés saber hasta qué monto podes financiar?
@@ -35,7 +35,7 @@ function Monto() {
         </div>}    
         
         <div className=" w-full flex flex-row justify-center items-center gap-2">
-        <h1 className=" text-pink-600 text-center font-bold text-2xl" >
+        <h1 className=" text-pink-600 text-main text-center font-bold text-2xl" >
             Monto a Financiar
         </h1>
 
