@@ -35,11 +35,11 @@ function Monto() {
         </div>}    
         
         <div className=" w-full flex flex-row justify-center items-center gap-2">
-        <h1 className=" text-primary text-main text-center font-bold text-2xl my-auto" >
+        <h1 className=" text-primary text-main text-center font-bold text-3xl my-auto" >
             Monto a Financiar
         </h1>
 
-        <div className="w-5 h-5 text-xs rounded-full border border-primary  text-primary text-center bg-transparent my-auto" onClick={()=>showInfo()} >
+        <div className="w-5 h-5 text-sm rounded-full border border-primary  text-primary text-center bg-transparent my-auto" onClick={()=>showInfo()} >
             ?
         </div>
         </div>
