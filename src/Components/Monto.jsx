@@ -77,48 +77,48 @@ function Monto() {
 
         <div className="flex flex-col w-full my-6">
           <form className="flex flex-col ">
-            <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
+            <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary">
               <label
                 id="tasa"
-                className="absolute -top-3 left-2 text-primary bg-slate-800 px-1 text-xs"
+                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
               >
                 Tasa
               </label>
 
               <input
-                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4"
+                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                 type="number"
                 name="tasa"
                 onChange={(e) => setInteres(e.target.value)}
               />
             </div>
 
-            <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
+            <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary">
               <label
                 id="periodos"
-                className="absolute -top-3 left-2 text-primary bg-slate-800 px-1 text-xs"
+                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
               >
                 Periodos
               </label>
 
               <input
-                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4"
+                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                 type="number"
                 name="periodos"
                 onChange={(e) => setPeriodos(e.target.value)}
               />
             </div>
 
-            <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
+            <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary">
               <label
                 id="cuota"
-                className="absolute -top-3 left-2 text-primary bg-slate-800 px-1 text-xs"
+                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
               >
                 Cuota a Pagar
               </label>
 
               <input
-                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4"
+                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                 type="number"
                 name="cuota"
                 onChange={(e) => setCuota(e.target.value)}
