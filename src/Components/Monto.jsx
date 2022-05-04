@@ -4,15 +4,30 @@ import React, {useState} from 'react'
 function Monto() {
 
     const [info, setInfo] = useState(false)
+    const [showResult, setShowResult] = useState(false)
 
-    const [i, setI] = useState(0.001)
-    const [va, setVA] = useState(1000)
-    const [c, setC] = useState(100)
-    const [n, setN] = useState(12)
-    const [x, setX] = useState(0)
+    const [interes, setInteres] = useState()
+    const [va, setVA] = useState()
+    const [cuota, setCuota] = useState()
+    const [periodos, setPeriodos] = useState()
+   
+
 
     const showInfo = () =>{
         setInfo(!info)
+    }
+
+    const calcular = () =>{
+        let i = interes/100;
+        let c = cuota;
+        let n = periodos;
+        let valorActual = (c/i)*(1-(1/((1+i)**n)));
+
+        setVA(valorActual)
+
+        setShowResult(true)
+        
+       
     }
 
 
@@ -20,7 +35,7 @@ function Monto() {
     return (
       <div className=" bg-slate-800 w-full min-h-screen">
         {info && (
-          <div className="w-full h-screen fixed z-1 bg-white/20 flex">
+          <div className="w-full h-screen fixed z-10 bg-white/20 flex">
             <div className="w-5/6 bg-slate-800 m-auto p-4 shadow-lg">
               <p className="text-center text-white text-xl font-semibold py-2">
                 ¿Querés saber hasta qué monto podes financiar?
@@ -62,28 +77,73 @@ function Monto() {
 
         <div className="flex flex-col w-full my-6">
           <form className="flex flex-col ">
-            <div className="my-5 mx-3 rounded-lg relative h-10 border border-primary">
-              <label id='tasa' className="absolute -top-4 left-2 text-primary bg-slate-800 z-10 px-1" >Tasa</label>
+            <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
+              <label
+                id="tasa"
+                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
+              >
+                Tasa
+              </label>
 
-              <input className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4" type="number" name="tasa" />
+              <input
+                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4"
+                type="number"
+                name="tasa"
+                onChange={(e) => setInteres(e.target.value)}
+              />
             </div>
 
-            <div className="my-5 mx-3 rounded-lg relative h-10 border border-primary">
-              <label id='periodos' className="absolute -top-4 left-2 text-primary bg-slate-800 z-10 px-1" >Periodos</label>
+            <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
+              <label
+                id="periodos"
+                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
+              >
+                Periodos
+              </label>
 
-              <input className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4" type="number" name="periodos" />
+              <input
+                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4"
+                type="number"
+                name="periodos"
+                onChange={(e) => setPeriodos(e.target.value)}
+              />
             </div>
 
-            <div className="my-5 mx-3 rounded-lg relative h-10 border border-primary">
-              <label id='cuota' className="absolute -top-4 left-2 text-primary bg-slate-800 z-10 px-1" >Cuota a Pagar</label>
+            <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
+              <label
+                id="cuota"
+                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
+              >
+                Cuota a Pagar
+              </label>
 
-              <input className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4" type="number" name="cuota" />
+              <input
+                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4"
+                type="number"
+                name="cuota"
+                onChange={(e) => setCuota(e.target.value)}
+              />
             </div>
 
-            {/*  <input type="submit" value="Submit" /> */}
+            <div
+              className="m-auto w-1/2 h-12 mt-4 p-1 flex  bg-primary rounded-lg text-center text-white"
+              onClick={() => calcular()}
+            >
+              {" "}
+              <div className="m-auto text-slate-800 uppercase font-bold text-lg">
+                Calcular
+              </div>
+            </div>
           </form>
         </div>
 
+
+        {showResult && 
+            <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary">
+            
+            Pagando {periodos} cuotas de ${cuota} al {interes}% mensual podés financiar <span className="text-xl font-bold text-primary">${va}</span>
+            
+            </div>}
       </div>
     );
 }
