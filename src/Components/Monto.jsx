@@ -15,12 +15,12 @@ function Monto() {
         <div className=" bg-slate-800 w-full min-h-screen">
 
         {info && <div className="w-full h-screen fixed z-1 bg-white/20 flex"> 
-        <div className="w-3/4 bg-slate-800 m-auto p-4 shadow-lg">
-            <p className="text-center text-white text-lg font-semibold py-2">
+        <div className="w-5/6 bg-slate-800 m-auto p-4 shadow-lg">
+            <p className="text-center text-white text-xl font-semibold py-2">
                 ¿Querés saber hasta qué monto podes financiar?
                 
             </p>
-            <p className="text-center text-white py-2">
+            <p className="text-center text-white py-2 text-lg">
                
                 Para ello tenes que conocer: 
                 <li className="mt-3 my-1 italic">la tasa de interés a aplicar,</li>
@@ -28,7 +28,7 @@ function Monto() {
                 <li className="my-1 italic"> el monto de cada cuota.</li> 
             </p>
 
-            <div className="m-auto w-1/2 h-12 mt-4 p-1 flex  bg-primary rounded-lg text-center text-white" onClick={()=>showInfo()}> <div className="m-auto text-slate-800 uppercase font-bold">Ok!</div></div>
+            <div className="m-auto w-1/2 h-12 mt-4 p-1 flex  bg-primary rounded-lg text-center text-white" onClick={()=>showInfo()}> <div className="m-auto text-slate-800 uppercase font-bold text-lg">Ok!</div></div>
 
         </div>
         
