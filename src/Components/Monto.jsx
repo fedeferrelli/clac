@@ -80,7 +80,7 @@ function Monto() {
             <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
               <label
                 id="tasa"
-                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
+                className="absolute -top-3 left-2 text-primary bg-slate-800 px-1 text-xs"
               >
                 Tasa
               </label>
@@ -96,7 +96,7 @@ function Monto() {
             <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
               <label
                 id="periodos"
-                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
+                className="absolute -top-3 left-2 text-primary bg-slate-800 px-1 text-xs"
               >
                 Periodos
               </label>
@@ -112,7 +112,7 @@ function Monto() {
             <div className="my-5 mx-3 rounded-lg relative h-10 border-2 border-primary">
               <label
                 id="cuota"
-                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
+                className="absolute -top-3 left-2 text-primary bg-slate-800 px-1 text-xs"
               >
                 Cuota a Pagar
               </label>
@@ -141,7 +141,7 @@ function Monto() {
         {showResult && 
             <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary">
             
-            Pagando {periodos} cuotas de ${cuota} al {interes}% mensual podés financiar <span className="text-xl font-bold text-primary">${va}</span>
+            Pagando {periodos} cuotas de {new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(cuota)} al {interes}% mensual podés financiar <span className="text-xl font-bold text-primary">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(va)}</span>
             
             </div>}
       </div>
