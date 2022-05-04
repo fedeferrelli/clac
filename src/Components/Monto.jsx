@@ -28,18 +28,18 @@ function Monto() {
                 <li className="my-1 italic"> el monto de cada cuota.</li> 
             </p>
 
-            <div className="m-auto w-1/2 h-12 mt-4 p-2  bg-pink-500 rounded-lg text-center text-white" onClick={()=>showInfo()}> <div className="m-auto h-full bg-gray-500 text-white items-center">Ok</div></div>
+            <div className="m-auto w-1/2 h-12 mt-4 p-1 flex  bg-primary rounded-lg text-center text-white" onClick={()=>showInfo()}> <div className="m-auto text-slate-800 uppercase font-bold">Ok!</div></div>
 
         </div>
         
         </div>}    
         
         <div className=" w-full flex flex-row justify-center items-center gap-2">
-        <h1 className=" text-pink-600 text-main text-center font-bold text-2xl" >
+        <h1 className=" text-primary text-main text-center font-bold text-2xl my-auto" >
             Monto a Financiar
         </h1>
 
-        <div className="w-5 h-5 text-xs rounded-full border border-pink-500  text-pink-500 text-center bg-transparent" onClick={()=>showInfo()} >
+        <div className="w-5 h-5 text-xs rounded-full border border-primary  text-primary text-center bg-transparent my-auto" onClick={()=>showInfo()} >
             ?
         </div>
         </div>
