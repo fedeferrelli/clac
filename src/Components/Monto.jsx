@@ -7,6 +7,7 @@ function Monto() {
     const [showResult, setShowResult] = useState(false)
 
     const [interes, setInteres] = useState()
+    const [interesTemp, setInteresTemp] = useState(12)
     const [va, setVA] = useState()
     const [cuota, setCuota] = useState()
     const [periodos, setPeriodos] = useState()
@@ -21,14 +22,21 @@ function Monto() {
         let i = interes/100;
         let c = cuota;
         let n = periodos;
-        let valorActual = (c/i)*(1-(1/((1+i)**n)));
-
+        let m = interesTemp;
+        let valorActual = (c/(i/(12/m)))*(1-(1/((1+i/(12/m))**n)));
         setVA(valorActual)
-
-        setShowResult(true)
-        
-       
+        setShowResult(true)   
     }
+
+    const temp = (a)=>{
+
+        setInteresTemp(a)
+
+
+    }
+
+    
+    console.log(interesTemp)
 
 
 
@@ -77,20 +85,33 @@ function Monto() {
 
         <div className="flex flex-col w-full my-6">
           <form className="flex flex-col ">
-            <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary">
-              <label
-                id="tasa"
-                className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
-              >
-                Tasa
-              </label>
+            <div className="flex flex-row">
+              <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary w-1/2">
+                <label
+                  id="tasa"
+                  className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
+                >
+                  Tasa
+                </label>
 
-              <input
-                className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
-                type="number"
-                name="tasa"
-                onChange={(e) => setInteres(e.target.value)}
-              />
+                <input
+                  className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
+                  type="number"
+                  name="tasa"
+                  onChange={(e) => setInteres(e.target.value)}
+                />
+              </div>
+
+              <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary w-1/2 flex flex-row justify-center items-center overflow-hidden">
+
+                <div className={interesTemp === 12 ? "w-1/2 h-full flex justify-center text-center bg-primary text-slate-800" : "w-1/2 h-full flex justify-center text-center bg-slate-800 text-primary "}  onClick={()=>temp(12)}>
+                  <span className="m-auto"> mensual</span>
+                </div>
+
+                <div className= {interesTemp === 1 ? "w-1/2 h-full flex justify-center text-center bg-primary text-slate-800 text-lg" : "w-1/2 h-full flex justify-center text-center bg-slate-800 text-primary "}   onClick={()=>temp(1)}>
+                  <span className="m-auto"> anual</span>
+                </div>
+              </div>
             </div>
 
             <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary">
@@ -137,13 +158,23 @@ function Monto() {
           </form>
         </div>
 
-
-        {showResult && 
-            <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary">
-            
-            Pagando {periodos} cuotas de {new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(cuota)} al {interes}% mensual podés financiar <span className="text-xl font-bold text-primary">${new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'ARS' }).format(va)}</span>
-            
-            </div>}
+        {showResult && (
+          <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary">
+            Pagando {periodos} cuotas de{" "}
+            {new Intl.NumberFormat("de-DE", {
+              style: "currency",
+              currency: "ARS",
+            }).format(cuota)}{" "}
+            al {Math.round(interes*interesTemp*10)/10}% anual podés financiar{" "}
+            <span className="text-xl font-bold text-primary">
+              $
+              {new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "ARS",
+              }).format(va)}
+            </span>
+          </div>
+        )}
       </div>
     );
 }
