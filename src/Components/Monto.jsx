@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 
 function Monto() {
@@ -6,7 +6,7 @@ function Monto() {
     const [info, setInfo] = useState(false)
     const [showResult, setShowResult] = useState(false)
 
-    const [interes, setInteres] = useState()
+    const [interes, setInteres] = useState('')
     const [interesTemp, setInteresTemp] = useState(12)
     const [va, setVA] = useState()
     const [cuota, setCuota] = useState()
@@ -28,15 +28,30 @@ function Monto() {
         setShowResult(true)   
     }
 
-    const temp = (a)=>{
-
-        setInteresTemp(a)
-
-
+    const tempMes = ()=>{
+        calcular();
+        setInteresTemp(12);
+       
+        
     }
 
+    const intereses = (a)=>{
+        setInteres(a);
+        
+    }
+
+    const tempAnual = ()=>{
+
+        setInteresTemp(1);
+       
+        
+    }
+
+useEffect(() => {
+    calcular()
+}, [interesTemp, intereses, cuota, periodos])
     
-    console.log(interesTemp)
+   console.log(interes)
 
 
 
@@ -104,11 +119,11 @@ function Monto() {
 
               <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary w-1/2 flex flex-row justify-center items-center overflow-hidden">
 
-                <div className={interesTemp === 12 ? "w-1/2 h-full flex justify-center text-center bg-primary text-slate-800" : "w-1/2 h-full flex justify-center text-center bg-slate-800 text-primary "}  onClick={()=>temp(12)}>
+                <div className={interesTemp === 12 ? "w-1/2 h-full flex justify-center text-center bg-primary text-slate-800" : "w-1/2 h-full flex justify-center text-center bg-slate-800 text-primary "}  onClick={()=>tempMes()}>
                   <span className="m-auto"> mensual</span>
                 </div>
 
-                <div className= {interesTemp === 1 ? "w-1/2 h-full flex justify-center text-center bg-primary text-slate-800 text-lg" : "w-1/2 h-full flex justify-center text-center bg-slate-800 text-primary "}   onClick={()=>temp(1)}>
+                <div className= {interesTemp === 1 ? "w-1/2 h-full flex justify-center text-center bg-primary text-slate-800 text-lg" : "w-1/2 h-full flex justify-center text-center bg-slate-800 text-primary "}   onClick={()=>tempAnual()}>
                   <span className="m-auto"> anual</span>
                 </div>
               </div>
@@ -146,7 +161,7 @@ function Monto() {
               />
             </div>
 
-            <div
+            {/* <div
               className="m-auto w-1/2 h-12 mt-4 p-1 flex  bg-primary rounded-lg text-center text-white"
               onClick={() => calcular()}
             >
@@ -154,11 +169,11 @@ function Monto() {
               <div className="m-auto text-slate-800 uppercase font-bold text-lg">
                 Calcular
               </div>
-            </div>
+            </div> */}
           </form>
         </div>
 
-        {showResult && (
+        {interes !== '' && cuota !== '' && periodos !== '' &&(
           <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary">
             Pagando {periodos} cuotas de{" "}
             {new Intl.NumberFormat("de-DE", {
