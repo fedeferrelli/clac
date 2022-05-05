@@ -9,14 +9,12 @@ function Monto() {
     const [interes, setInteres] = useState('')
     const [interesTemp, setInteresTemp] = useState(12)
     const [va, setVA] = useState()
-    const [cuota, setCuota] = useState()
-    const [periodos, setPeriodos] = useState()
+    const [cuota, setCuota] = useState('')
+    const [periodos, setPeriodos] = useState('')
    
 
 
-    const showInfo = () =>{
-        setInfo(!info)
-    }
+
 
     const calcular = () =>{
         let i = interes/100;
@@ -35,10 +33,6 @@ function Monto() {
         
     }
 
-    const intereses = (a)=>{
-        setInteres(a);
-        
-    }
 
     const tempAnual = ()=>{
 
@@ -49,7 +43,7 @@ function Monto() {
 
 useEffect(() => {
     calcular()
-}, [interesTemp, intereses, cuota, periodos])
+}, [interesTemp, interes, cuota, periodos])
     
    console.log(interes)
 
@@ -173,7 +167,7 @@ useEffect(() => {
           </form>
         </div>
 
-        {interes !== '' && cuota !== '' && periodos !== '' &&(
+        {cuota !== '' && interes !== '' &&  periodos !== '' &&(
           <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary">
             Pagando {periodos} cuotas de{" "}
             {new Intl.NumberFormat("de-DE", {
