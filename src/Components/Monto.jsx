@@ -194,7 +194,7 @@ const showInfo =()=>{
                 }).format(cuota)}{" "}
                 al {Math.round(interes * interesTemp * 10) / 10}% anual podés
                 financiar{" "}
-                <span className="text-xl font-bold text-primary">
+                <span className="text-xl font-bold text-primary block mt-2">
                   $
                   {new Intl.NumberFormat("de-DE", {
                     style: "currency",
