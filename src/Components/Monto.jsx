@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import Resumen from './Resumen';
 
 
 function Monto() {
@@ -36,7 +37,7 @@ const showInfo =()=>{
     return (
       <div className=" bg-slate-800 w-full min-h-screen">
         {info && (
-          <div className="w-full h-screen fixed z-10 bg-white/20 flex">
+          <div className="w-full h-screen fixed z-10 bg-slate-700/70 flex">
             <div className="w-5/6 bg-slate-800 m-auto p-4 shadow-lg">
               <p className="text-center text-white text-xl font-semibold py-2">
                 ¿Querés saber hasta qué monto podes financiar?
@@ -186,6 +187,7 @@ const showInfo =()=>{
             </section>
 
             {cuota !== "" && interes !== "" && periodos !== "" && (
+                <>
               <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
                 Pagando {periodos} cuotas de{" "}
                 {new Intl.NumberFormat("de-DE", {
@@ -202,10 +204,22 @@ const showInfo =()=>{
                   }).format(va)}
                 </span>
               </div>
+
+<Resumen 
+va={va}
+cuota={cuota}
+periodos={periodos}
+interes={interes}
+interesTemp={interesTemp}
+/>
+</>
             )}
+ 
             
           </main>
+          
         </div>
+ 
       </div>
     );
 }
