@@ -110,7 +110,7 @@ const showInfo =()=>{
             <div className="flex flex-col mx-auto w-11/12 my-6 sm:w-1/2">
               <form className="flex flex-col w-full m-auto">
                 <div className="flex flex-row gap-5">
-                  <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary w-1/2">
+                  <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary w-1/2">
                     <label
                       id="tasa"
                       className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
@@ -126,7 +126,7 @@ const showInfo =()=>{
                     />
                   </div>
 
-                  <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary w-1/2 flex flex-row justify-center items-center overflow-hidden">
+                  <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary w-1/2 flex flex-row justify-center items-center overflow-hidden">
                     <div
                       className={
                         interesTemp === 12
@@ -151,7 +151,7 @@ const showInfo =()=>{
                   </div>
                 </div>
 
-                <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary">
+                <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary">
                   <label
                     id="periodos"
                     className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
@@ -167,7 +167,7 @@ const showInfo =()=>{
                   />
                 </div>
 
-                <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary">
+                <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary">
                   <label
                     id="cuota"
                     className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
