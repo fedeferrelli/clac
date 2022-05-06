@@ -35,10 +35,10 @@ const showInfo =()=>{
 
 
     return (
-      <div className=" bg-slate-800 w-full min-h-screen">
+      <div className=" bg-slate-800 w-full">
         {info && (
           <div className="w-full h-screen fixed z-10 bg-slate-700/70 flex">
-            <div className="w-5/6 bg-slate-800 m-auto p-4 shadow-lg">
+            <div className="w-11/12 bg-slate-800 m-auto p-4 shadow-lg">
               <p className="text-center text-white text-xl font-semibold py-2">
                 ¿Querés saber hasta qué monto podes financiar?
               </p>
@@ -64,7 +64,7 @@ const showInfo =()=>{
           </div>
         )}
 
-        <div className="w-full h-screen  flex">
+        <div className="h-screen w-full mx-auto flex">
           <main className="sm:flex sm:flex-col sm:w-full">
             <div className=" w-full flex flex-row justify-center items-center gap-2">
               <h1 className=" text-primary text-main text-center font-bold text-3xl my-auto">
@@ -82,7 +82,7 @@ const showInfo =()=>{
             <section className="sm:flex sm:flex-row sm:w-3/4 sm:mx-auto">
 
             <div className="sm:flex sm:flex-row  sm:w-1/2">
-              <div className="w-5/6 bg-slate-700 m-auto p-4 hidden sm:flex sm:flex-col shadow-lg">
+              <div className="w-/6 bg-slate-700 m-auto p-4 hidden sm:flex sm:flex-col shadow-lg">
                 <p className="text-center text-white text-xl font-semibold py-2">
                   ¿Querés saber hasta qué monto podes financiar?
                 </p>
@@ -107,10 +107,10 @@ const showInfo =()=>{
               </div>
             </div>
 
-            <div className="flex flex-col w-full my-6 sm:w-1/2">
-              <form className="flex flex-col ">
-                <div className="flex flex-row">
-                  <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary w-1/2">
+            <div className="flex flex-col mx-auto w-11/12 my-6 sm:w-1/2">
+              <form className="flex flex-col w-full m-auto">
+                <div className="flex flex-row gap-5">
+                  <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary w-1/2">
                     <label
                       id="tasa"
                       className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
@@ -126,7 +126,7 @@ const showInfo =()=>{
                     />
                   </div>
 
-                  <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary w-1/2 flex flex-row justify-center items-center overflow-hidden">
+                  <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary w-1/2 flex flex-row justify-center items-center overflow-hidden">
                     <div
                       className={
                         interesTemp === 12
@@ -151,7 +151,7 @@ const showInfo =()=>{
                   </div>
                 </div>
 
-                <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary">
+                <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary">
                   <label
                     id="periodos"
                     className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
@@ -167,7 +167,7 @@ const showInfo =()=>{
                   />
                 </div>
 
-                <div className="my-5 mx-3 rounded-lg relative h-12 border-2 border-primary">
+                <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border-2 border-primary">
                   <label
                     id="cuota"
                     className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
@@ -188,7 +188,7 @@ const showInfo =()=>{
 
             {cuota !== "" && interes !== "" && periodos !== "" && (
                 <>
-              <div className="m-8 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
+              <div className="w-11/12 mx-auto my-2 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
                 Pagando {periodos} cuotas de{" "}
                 {new Intl.NumberFormat("de-DE", {
                   style: "currency",

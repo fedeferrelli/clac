@@ -8,8 +8,8 @@ function Resumen({va, cuota, periodos, interes, interesTemp}) {
     console.log(TEA)
     return (
 
-        <main className="bg-slate-800 pb-10 ">
-            <div className="w-5/6 sm:w-1/3 m-auto border border-primary rounded-lg overflow-hidden">
+        <main className="bg-slate-800 pt-3 pb-10">
+            <div className="w-11/12 sm:w-1/3 m-auto border border-primary rounded-lg overflow-hidden">
         <table className="w-full mt-0 table-auto  bg-slate-800  border-primary rounded-sm p-2 m-auto text-white">
         <thead>
           <tr className=" bg-primary text-slate-800 p-2 rounded-2xl h-10 text-xl">
@@ -70,7 +70,7 @@ function Resumen({va, cuota, periodos, interes, interesTemp}) {
             
           </tr>
 
-          <tr className="border border-primary hover:bg-primary cursor-pointer hover:text-slate-800 text-center">
+          <tr className="border border-primary hover:bg-primary cursor-pointer text-lg hover:text-slate-800 text-center">
             <td className="p-1">Intereses a Pagar</td>
             <td className="p-1">{new Intl.NumberFormat("de-DE", {
                           style: "currency",
