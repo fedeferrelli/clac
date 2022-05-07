@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Resumen from "./Resumen";
 
-function Monto() {
+function Cuota() {
   const [info, setInfo] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
   const [interes, setInteres] = useState("");
   const [interesTemp, setInteresTemp] = useState(12);
-  const [va, setVA] = useState();
-  const [cuota, setCuota] = useState("");
+  const [va, setVA] = useState("");
+  const [cuota, setCuota] = useState(12);
   const [periodos, setPeriodos] = useState("");
 
 /* Para mobile: toggle para mostrar explicacion */
@@ -20,17 +20,17 @@ function Monto() {
  /* Calcula el resultado de la pantalla */ 
   const calcular = () => {
     let i = interes / 100;
-    let c = cuota;
+    let v = va;
     let n = periodos;
     let m = interesTemp;
-    let valorActual = (c / (i / (12 / m))) * (1 - 1 / (1 + i / (12 / m)) ** n);
-    setVA(valorActual);
+    let cuotaAPagar = (v * (i / (12 / m))) / (1 - 1 / (1 + i / (12 / m)) ** n);
+    setCuota(cuotaAPagar);
     setShowResult(true);
   };
 
   useEffect(() => {
     calcular();
-  }, [interesTemp, interes, cuota, periodos]);
+  }, [interesTemp, interes, va, periodos]);
 
 
 
@@ -41,7 +41,7 @@ function Monto() {
         <div className="w-full h-screen fixed z-10 bg-slate-700/70 flex">
           <div className="w-11/12 bg-slate-800 m-auto p-4 shadow-lg">
             <p className="text-center text-white text-xl font-semibold py-2">
-              ¿Querés saber hasta qué monto podes financiar?
+              ¿Querés saber hasta qué cuota hay que pagar?
             </p>
             <p className="text-center text-white py-2 text-lg">
               Para ello tenes que conocer:
@@ -49,7 +49,7 @@ function Monto() {
                 la tasa de interés a aplicar,
               </li>
               <li className="my-1 italic">la cantidad de cuotas y</li>
-              <li className="my-1 italic"> el monto de cada cuota.</li>
+              <li className="my-1 italic"> el monto financiado.</li>
             </p>
 
             <div
@@ -72,7 +72,7 @@ function Monto() {
 {/* Titulo */}
           <div className=" w-full flex flex-row justify-center items-center gap-2">
             <h1 className=" text-primary text-main text-center font-bold text-3xl my-auto">
-              Monto a Financiar
+              Cuota a Pagar
             </h1>
 
             <div
@@ -86,10 +86,10 @@ function Monto() {
           <section className="sm:flex sm:flex-row sm:w-3/4 sm:mx-auto">
 
 {/* Para laptop: explicación de los requisitos para utilizar esta pantalla */}
-            <div className="sm:flex sm:flex-row  sm:w-1/2 ">
+            <div className="sm:flex sm:flex-row  sm:w-1/2">
               <div className="w-/6 bg-slate-700 m-auto max-w-[400px] p-4 hidden sm:flex sm:flex-col shadow-lg">
                 <p className="text-center text-white text-xl font-semibold py-2">
-                  ¿Querés saber hasta qué monto podes financiar?
+                  ¿Querés saber qué cuota hay que pagar?
                 </p>
                 <p className="text-center text-white py-2 text-lg">
                   Para ello tenes que conocer:
@@ -97,7 +97,7 @@ function Monto() {
                     la tasa de interés a aplicar,
                   </li>
                   <li className="my-1 italic">la cantidad de cuotas y</li>
-                  <li className="my-1 italic"> el monto de cada cuota.</li>
+                  <li className="my-1 italic"> el monto financiado.</li>
                 </p>
 
                 <div
@@ -175,17 +175,17 @@ function Monto() {
 
                 <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary">
                   <label
-                    id="cuota"
+                    id="va"
                     className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
                   >
-                    Cuota a Pagar
+                    Monto Financiado
                   </label>
 
                   <input
                     className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                     type="number"
-                    name="cuota"
-                    onChange={(e) => setCuota(e.target.value)}
+                    name="va"
+                    onChange={(e) => setVA(e.target.value)}
                   />
                 </div>
               </form>
@@ -193,23 +193,23 @@ function Monto() {
           </section>
 
 {/* Muestra el resultado de la pantalla y el resumen */}
-          {cuota !== "" && interes !== "" && periodos !== "" && (
+          {va !== "" && interes !== "" && periodos !== "" && (
             <>
               <div className="w-11/12 mx-auto my-2 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
-                Pagando {periodos} cuotas de{" "}
-                {new Intl.NumberFormat("de-DE", {
-                  style: "currency",
-                  currency: "ARS",
-                }).format(cuota)}{" "}
-                al {Math.round(interes * interesTemp * 10) / 10}% anual podés
-                financiar{" "}
-                <span className="text-xl font-bold text-primary block mt-2">
-                  $
+                
+                Para financiar $
                   {new Intl.NumberFormat("de-DE", {
                     style: "currency",
                     currency: "ARS",
-                  }).format(va)}
+                  }).format(va)} al {Math.round(interes * interesTemp * 10) / 10}% en {periodos} plazos hay que pagar cuotas de
+                <span className="text-xl font-bold text-primary block mt-2">
+                  $
+                  {new Intl.NumberFormat("de-DE", {
+                  style: "currency",
+                  currency: "ARS",
+                }).format(cuota)}
                 </span>
+                
               </div>
 
               <Resumen
@@ -227,4 +227,4 @@ function Monto() {
   );
 }
 
-export default Monto;
+export default Cuota;
