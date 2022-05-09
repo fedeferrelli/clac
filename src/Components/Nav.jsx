@@ -18,7 +18,7 @@ const showNavBar = () =>{
 
     return (
       <>
-        <section className="hidden sm:flex justify-end bg-slate-800/95 p-4 shadow-xl drop-shadow-lg ">
+        <section className="hidden sm:flex justify-end bg-slate-800/95 p-6 shadow-xl drop-shadow-lg ">
           <nav className=" text-primary flex text-lg">
             {links.map((i) => (
               <h3 key={i.key} className="mx-4 h-full">

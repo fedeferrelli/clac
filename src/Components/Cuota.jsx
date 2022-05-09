@@ -35,7 +35,7 @@ function Cuota() {
 
 
   return (
-    <div className=" bg-slate-800 w-full pt-4">
+    <div className=" bg-slate-800 w-full py-4 sm:py-8">
       {/* Para mobile: explicación de los requisitos para utilizar esta pantalla */
         info && (
         <div className="w-full h-screen fixed z-10 bg-slate-700/70 flex">
@@ -83,11 +83,11 @@ function Cuota() {
             </div>
           </div>
 
-          <section className="sm:flex sm:flex-row sm:w-3/4 sm:mx-auto">
+          <section className="sm:flex sm:flex-row sm:w-3/4 sm:mx-auto sm:pt-4 sm:gap-8">
 
 {/* Para laptop: explicación de los requisitos para utilizar esta pantalla */}
             <div className="sm:flex sm:flex-row  sm:w-1/2">
-              <div className="w-/6 bg-slate-700 m-auto max-w-[400px] p-4 hidden sm:flex sm:flex-col shadow-lg">
+              <div className="w-full bg-slate-700 m-auto  p-4 hidden sm:flex sm:flex-col shadow-lg">
                 <p className="text-center text-white text-xl font-semibold py-2">
                   ¿Querés saber qué cuota hay que pagar?
                 </p>
