@@ -17,36 +17,32 @@ function Periodos() {
   };
 
   
-  /* Calcula el plazo con decimales (paso intermedio) resultado de la pantalla */ 
+  /* Calcula el plazo con decimales (paso intermedio) resultado de la pantalla y lo redondea */ 
   const calcular = () => {
     let m = interesTemp;
     let i = (interes / 100)/ (12 / m);
     let v = va;
     let c = cuota;
-    
-   
 
-    let n = Math.log(1/(1-va*i/c))/Math.log(1+i)
+    let n = Math.round(Math.log(1/(1-va*i/c))/Math.log(1+i))
 
     setPeriodos(n);
-    setShowResult(true);
+
+/* Con el plazo recalculado (redondeado) recalcula la cuota a Pagar (para mantener el mismo valor financiado) */ 
+
+    let cuotaAPagar = (v * (i / (12 / m))) / (1 - 1 / (1 + i / (12 / m)) ** n);
+    
+    setCuota(cuotaAPagar);
+
   };
  
- 
-  /* Calcula el resultado de la pantalla */ 
- /*  const calcular = () => {
-    let i = interes / 100;
-    let v = va;
-    let n = periodos;
-    let m = interesTemp;
-    let cuotaAPagar = (v * (i / (12 / m))) / (1 - 1 / (1 + i / (12 / m)) ** n);
-    setCuota(cuotaAPagar);
-    setShowResult(true);
-  }; */
-
   useEffect(() => {
     calcular();
   }, [interesTemp, interes, va, cuota]);
+
+
+  console.log(periodos)
+  console.log(Math.round(periodos))
 
 
 
@@ -211,8 +207,12 @@ function Periodos() {
           </section>
 
 {/* Muestra el resultado de la pantalla y el resumen */}
-          {va !== "" && interes !== "" && cuota !== "" && va*interes<cuota &&(
+          {va !== "" && interes !== "" && cuota !== "" && (
+
+va*(interes / 100)/ (12 / interesTemp)<cuota ?
+          
             <>
+           
               <div className="w-11/12 mx-auto my-2 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
                 
                 Para financiar $
@@ -237,7 +237,23 @@ function Periodos() {
                 interes={interes}
                 interesTemp={interesTemp}
               />
+               <div className="bg-secondary pb-8 -mt-10">
+              <p className="w-11/12 mx-auto  text-xs text-center sm:text-left text-gray-400 sm:w-1/3 sm:mx-auto"> <span className="text-sm text-gray-100">Nota:</span> dado que los números que ingresaste dan como resultado un periodo no entero (por ejemplo 2,8 ó 15,1) se redondeó dicho plazo (por ejemplo 3 ó 15) y se recalculó el valor de la cuota para manetener constante el monto financiado que ingresaste.</p>
+            </div>
             </>
+            :
+            <div className="w-11/12 mx-auto my-2 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
+                
+           Dada la Tasa que ingresaste ({Math.round(interes * interesTemp * 10) / 10}% anual) y el Monto Financiado ({new Intl.NumberFormat("de-DE", {
+                    style: "currency",
+                    currency: "ARS",
+                  }).format(va)}), la Cuota a Pagar mínima debe ser mayor a {new Intl.NumberFormat("de-DE", {
+                    style: "currency",
+                    currency: "ARS",
+                  }).format(va*(interes / 100)/ (12 / interesTemp))}
+            
+          </div>
+
           )}
         </main>
       </div>

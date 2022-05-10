@@ -10,7 +10,7 @@ function Resumen({va, cuota, periodos, interes, interesTemp}) {
             <div className="w-11/12 sm:w-1/3 m-auto border border-primary rounded-lg overflow-hidden">
         <table className="w-full mt-0 table-auto  bg-slate-800  border-primary rounded-sm p-2 m-auto text-white">
         <thead>
-          <tr className=" bg-primary text-slate-800 p-2 rounded-2xl h-10 text-2xl">
+          <tr className=" bg-primary text-slate-800 p-2 rounded-2xl h-10 text-2xl sm:text-xl">
             <th colSpan='2' >Resumen</th>
             
             
