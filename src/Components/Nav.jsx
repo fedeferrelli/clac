@@ -7,6 +7,7 @@ const links = [
     {text: 'Inicio', link:'/', key:1 },
     {text: 'Monto a Financiar', link:'/monto-a-financiar', key:2 },
     {text: 'Cuota a Pagar', link:'/cuota-a-pagar', key:3 },
+    {text: 'Periodos', link:'/periodos', key:4 },
 ];
 
 const [showNav, setShowNav] = useState(false);
@@ -19,12 +20,16 @@ const showNavBar = () =>{
     return (
       <>
         <section className="hidden sm:flex justify-end bg-slate-800/95 p-6 shadow-xl drop-shadow-lg ">
-          <nav className=" text-primary flex text-lg">
+          <nav className=" text-primary flex text-lg justify-between w-full">
+            <div className="text-xl font-extrabold italic">( 1+i )</div>
+
+            <div className=" text-primary flex text-lg">
             {links.map((i) => (
               <h3 key={i.key} className="mx-4 h-full">
                 <Link to={i.link}>{i.text}</Link>
               </h3>
             ))}
+            </div>
           </nav>
         </section>
 
