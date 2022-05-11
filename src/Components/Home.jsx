@@ -1,9 +1,10 @@
 import React from 'react'
 
 function Home() {
+
     return (
         <div>
-            HOMEEEEEEE
+           <div>Home</div>
         </div>
     )
 }

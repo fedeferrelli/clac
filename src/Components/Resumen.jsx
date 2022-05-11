@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Resumen({va, cuota, periodos, interes, interesTemp}) {
+function Resumen({va, cuota, periodos, interes, interesTemp=12}) {
 
     const TEA = ((1+(interes/12 * interesTemp)/100)**12)-1
 

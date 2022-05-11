@@ -6,6 +6,7 @@ import Cuota from './Components/Cuota'
 import Nav from './Components/Nav'
 import Home from './Components/Home'
 import Periodos from './Components/Periodos'
+import TIR from './Components/TIR'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -20,7 +21,8 @@ function App() {
         <Route exact path="/"
         element={<Home />}/>
           
-        
+        <Route path="/tir" element={<TIR />}/>
+
         <Route path="/monto-a-financiar" element={<Monto />}/>
 
         <Route path="/cuota-a-pagar" element={<Cuota />}/>

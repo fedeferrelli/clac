@@ -8,6 +8,7 @@ const links = [
     {text: 'Monto a Financiar', link:'/monto-a-financiar', key:2 },
     {text: 'Cuota a Pagar', link:'/cuota-a-pagar', key:3 },
     {text: 'Periodos', link:'/periodos', key:4 },
+    {text: 'TIR', link:'/tir', key:5 },
 ];
 
 const [showNav, setShowNav] = useState(false);
