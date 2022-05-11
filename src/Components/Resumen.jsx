@@ -43,19 +43,19 @@ function Resumen({va, cuota, periodos, interes, interesTemp=12}) {
       
           <tr className="border border-primary hover:bg-primary cursor-pointer text-lg hover:text-slate-800 text-center">
             <td className="p-1">Tasa Mensual</td>
-            <td className="p-1">{Math.round(interes * interesTemp * 10/12) / 10}%</td>
+            <td className="p-1">{Math.round(interes * interesTemp * 100/12) / 100}%</td>
             
           </tr>
       
           <tr className="border border-primary hover:bg-primary cursor-pointer text-lg hover:text-slate-800 text-center">
             <td className="p-1">Tasa Nominal Anual</td>
-            <td className="p-1">{Math.round(interes * interesTemp * 10) / 10}%</td>
+            <td className="p-1">{Math.round(interes * interesTemp * 100) / 100}%</td>
             
           </tr>
       
           <tr className="border border-primary hover:bg-primary cursor-pointer text-lg hover:text-slate-800 text-center">
             <td className="p-1">Tasa Efectiva Anual</td>
-            <td className="p-1">{Math.round(TEA*1000)/10}%</td>
+            <td className="p-1">{Math.round(TEA*10000)/100}%</td>
             
           </tr>
 

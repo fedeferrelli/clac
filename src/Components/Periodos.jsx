@@ -50,7 +50,7 @@ function Periodos() {
     <div className=" bg-slate-800 w-full py-4 sm:py-8">
       {/* Para mobile: explicación de los requisitos para utilizar esta pantalla */
         info && (
-        <div className="w-full h-screen fixed z-10 bg-slate-700/70 flex">
+        <div className="w-full h-screen fixed top-0 z-10 bg-slate-700/70 flex">
           <div className="w-11/12 bg-slate-800 m-auto p-4 shadow-lg">
             <p className="text-center text-white text-xl font-semibold py-2">
               ¿Querés saber cuántos periodos hay que pagar?

@@ -66,7 +66,7 @@ function TIR() {
     <div className=" bg-slate-800 w-full py-4 sm:py-8">
       {/* Para mobile: explicación de los requisitos para utilizar esta pantalla */
         info && (
-        <div className="w-full h-screen fixed z-10 bg-slate-700/70 flex">
+        <div className="w-full h-screen fixed top-0 z-10 bg-slate-700/70 flex">
           <div className="w-11/12 bg-slate-800 m-auto p-4 shadow-lg">
             <p className="text-center text-white text-xl font-semibold py-2">
               ¿Querés saber la tasa de la operación?
@@ -100,7 +100,7 @@ function TIR() {
 {/* Titulo */}
           <div className=" w-full flex flex-row justify-center items-center gap-2">
             <h1 className=" text-primary text-main text-center font-bold text-3xl my-auto">
-              Tasa de Ineterés
+              Tasa de Interés
             </h1>
 
             <div
@@ -214,16 +214,16 @@ showResult ?
                 es necesario cobrar una tasa de 
                 <span className="text-xl font-bold text-primary block mt-2">
                   
-                  {Math.round(interes*1000) / 10}% mensual
+                  {Math.round(interes*10000) / 100}% mensual
                 </span>
                 <span className="text-xl font-bold text-primary block mt-2">
                   
-                  {Math.round(interes* 12000) / 10}% nominal anual
+                  {Math.round(interes* 120000) / 100}% nominal anual
                 </span>
 
                 <span className="text-xl font-bold text-primary block mt-2">
                   
-                  {Math.round((((1+interes)**12)-1)*1000)/10 }% efectiva anual
+                  {Math.round((((1+interes)**12)-1)*10000)/100 }% efectiva anual
                 </span>
               </div>
 
