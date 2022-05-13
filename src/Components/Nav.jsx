@@ -21,7 +21,7 @@ const showNavBar = () =>{
 
     return (
       <>
-        <section className="hidden sm:flex justify-end bg-slate-800/95 p-6 shadow-xl drop-shadow-lg ">
+        <section className="hidden sm:flex justify-end  bg-slate-800/95 p-6 shadow-xl drop-shadow-lg ">
           <nav className=" text-primary flex text-lg justify-between w-full">
             <div className="text-xl font-extrabold italic">( 1+i )</div>
 
