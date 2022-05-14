@@ -1,14 +1,19 @@
 var elements = [
+    {titulo: 'Inicio',
+    
+    link: '/', 
+    key:0},
+
     {titulo: 'Tasa de Interés',
 bajada:'Para ello tenes que conocer',
 otros_elementos:['Monto a financiar', 'Valor de la cuota', 'Cantidad de cuotas'],
-link: 'tir', 
+link: '/tir', 
 key:1},
 
 {titulo: 'Monto a Financiar',
 bajada:'Para ello tenes que conocer',
 otros_elementos:['Tasa de interés', 'Valor de la cuota', 'Cantidad de cuotas'],
-link: 'monto-a-financiar', 
+link: '/monto-a-financiar', 
 key:2},
 
 {titulo: 'Valor de la Cuota',

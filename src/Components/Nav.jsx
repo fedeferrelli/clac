@@ -1,16 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
-function Nav() {
+import elements from '../assets/data/elements';
 
-const links = [
-    {text: 'Inicio', link:'/', key:1},
-    {text: 'Tasa', link:'/tir', key: 2},
-    {text: 'Monto a Financiar', link:'/monto-a-financiar', key: 3},
-    {text: 'Cuota a Pagar', link:'/cuota-a-pagar', key:4},
-    {text: 'Periodos', link:'/periodos', key:5},
-    ,
-];
+function Nav() {
 
 const [showNav, setShowNav] = useState(false);
 
@@ -18,17 +11,16 @@ const showNavBar = () =>{
     setShowNav(true)
 }
 
-
     return (
       <>
         <section className="hidden sm:flex justify-end  bg-slate-800/95 p-6 shadow-xl drop-shadow-lg ">
-          <nav className=" text-primary flex text-lg justify-between w-full">
-            <div className="text-xl font-extrabold italic">( 1+i )</div>
+          <nav className=" text-primary flex text-lg justify-end w-full">
+            
 
             <div className=" text-primary flex text-lg">
-            {links.map((i) => (
+            {elements.map((i) => (
               <h3 key={i.key} className="mx-4 h-full">
-                <Link to={i.link}>{i.text}</Link>
+                <Link to={i.link}>{i.titulo}</Link>
               </h3>
             ))}
             </div>
