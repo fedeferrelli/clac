@@ -34,9 +34,9 @@ const showNavBar = () =>{
           { showNav &&
           <div className="fixed z-20 top-0 left-0 right-0 w-full h-screen bg-slate-500/40" onClick={()=>setShowNav(false)}>
           <nav className=" text-primary flex flex-col text-xl font-bold text-center bg-slate-800  py-8 pt-16 shadow-xl drop-shadow-lg">
-            {links.map((i) => (
+            {elements.map((i) => (
               <h3 key={i.key} className="py-2" >
-                <Link to={i.link}>{i.text}</Link>
+                <Link to={i.link}>{i.titulo}</Link>
               </h3>
             ))}
           </nav>
