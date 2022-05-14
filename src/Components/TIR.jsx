@@ -33,24 +33,29 @@ function TIR() {
    
     var error = Math.abs(va-vaPrueba);
 
-    if(vaMin>va  || vaMax<va ){
+    if(vaMin>v  || vaMax<v ){
 
       setShowResult(false)}
 
       else{
 
-        setShowResult(true)
-        while(error>0.0000000001){
+        let counter = 0
 
-          if (vaPrueba<va)
+        setShowResult(true)
+        while(error>0.0000000001 && counter<1000){
+
+
+          if (vaPrueba<v)
                 { tasaMax=i}
           else  {tasaMin=i }
 
         i = (tasaMin+tasaMax)/2
 
         vaPrueba = c / i * (1 - 1 / (1 + i) ** n);
-        error = Math.abs(va-vaPrueba);
+        error = Math.abs(v-vaPrueba);
         setInteres(i)
+        counter=counter+1;
+   
        }
     } 
     
@@ -194,13 +199,17 @@ function TIR() {
                 </div>
               </form>
             </div>
+
+
           </section>
+
+
 
 {/* Muestra el resultado de la pantalla y el resumen */}
           {cuota !== "" && va !== "" && periodos !== "" && (
 
 showResult ? 
-            <>
+            <section className="bg-secondary">
               <div className="w-11/12 mx-auto my-2 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
                 Pagando {periodos} cuotas de{" "}
                 {new Intl.NumberFormat("de-DE", {
@@ -234,7 +243,7 @@ showResult ?
                 interes={interes*100}
                 
               />
-            </>
+            </section>
             :
             <div className="w-11/12 mx-auto my-2 p-4 text-white text-sm text-center font-light italic sm:w-1/3 sm:mx-auto">
                 Con los datos ingresados la TIR está fuera del rango de cálculo ( -10% / 200% mensual)
