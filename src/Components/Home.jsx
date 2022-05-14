@@ -14,9 +14,9 @@ function Home() {
 <section className="absolute z-10 border border-red-500 w-full h-full flex flex-col sm:flex-row justify-center">
 
 
-<h1 className="text-5xl text-white font-bold  w-1/2 border border-green-600 m-auto">Calculadora</h1>
+<h1 className="text-5xl text-white font-bold  w-full border border-green-600 m-auto">Calculadora</h1>
 
-<h1 className="text-4xl text-gray-700 font-bold uppercase w-1/2 border border-orange-600 m-auto">Calculadora</h1>
+<h1 className="text-4xl text-gray-700 font-bold uppercase w-full border border-orange-600 m-auto">Calculadora</h1>
 
 
 </section>
