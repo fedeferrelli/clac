@@ -118,7 +118,7 @@ function Monto() {
                 <div className="flex flex-row gap-5">
                   <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary w-1/2">
                     <label
-                      id="tasa"
+                      htmlFor="tasa"
                       className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
                     >
                       Tasa
@@ -127,7 +127,7 @@ function Monto() {
                     <input
                       className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                       type="number"
-                      name="tasa"
+                      id="tasa"
                       onChange={(e) => setInteres(e.target.value)}
                     />
                   </div>
@@ -159,7 +159,7 @@ function Monto() {
 
                 <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary">
                   <label
-                    id="periodos"
+                    htmlFor="periodos"
                     className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
                   >
                     Periodos
@@ -168,14 +168,14 @@ function Monto() {
                   <input
                     className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                     type="number"
-                    name="periodos"
+                    id="periodos"
                     onChange={(e) => setPeriodos(e.target.value)}
                   />
                 </div>
 
                 <div className="my-5 rounded-lg relative h-12 sm:h-10 sm:border border border-primary">
                   <label
-                    id="cuota"
+                    htmlFor="cuota"
                     className="absolute -top-4 left-2 text-primary bg-slate-800 px-1"
                   >
                     Cuota a Pagar
@@ -184,7 +184,7 @@ function Monto() {
                   <input
                     className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                     type="number"
-                    name="cuota"
+                    id="cuota"
                     onChange={(e) => setCuota(e.target.value)}
                   />
                 </div>
