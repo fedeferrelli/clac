@@ -116,7 +116,7 @@ function Home() {
                   </div>
                 </div>
                 <button
-                  className="m-auto w-3/4  bg-secondary px-6 rounded-lg text-primary mt-4 outline-none hover:bg-slate-900 duration-300 h-12"
+                  className="m-auto  bg-secondary px-6 rounded-lg text-primary mt-4 outline-none hover:bg-slate-900 duration-300 h-12 text-xl sm:text-lg"
                   onClick={() => navigate(item.link)}
                 >
                   Quiero Calcular
