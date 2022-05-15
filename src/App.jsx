@@ -7,7 +7,8 @@ import Nav from './Components/Nav'
 import Home from './Components/Home'
 import Periodos from './Components/Periodos'
 import TIR from './Components/TIR'
-
+import Footer
+ from './Components/Footer'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/periodos" element={<Periodos />}/>
 
              </Routes>
+             <Footer/>
     </Router>
     
   );
