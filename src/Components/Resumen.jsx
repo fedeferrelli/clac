@@ -6,8 +6,8 @@ function Resumen({va, cuota, periodos, interes, interesTemp=12}) {
 
     return (
 
-        <main className="bg-slate-800 pt-3 pb-10">
-            <div className="w-11/12 sm:w-1/3 m-auto border border-primary rounded-lg overflow-hidden">
+        <div className="bg-slate-800 pt-3">
+            <div className="w-11/12 sm:w-1/3 m-auto border border-primary rounded-lg">
         <table className="w-full mt-0 table-auto  bg-slate-800  border-primary rounded-sm p-2 m-auto text-white">
         <thead>
           <tr className=" bg-primary text-slate-800 p-2 rounded-2xl h-10 text-2xl sm:text-xl">
@@ -80,7 +80,17 @@ function Resumen({va, cuota, periodos, interes, interesTemp=12}) {
         </tbody>
       </table>
       </div>
-      </main>
+      <main className="w-full bg-secondary flex justify-center mt-6">
+
+            <div className="text-primary text-sm m-auto py-4" >  Hecho con
+             <span className="text-xl inline mx-1"><a href="https://es.wikipedia.org/wiki/Rock_and_roll" target="blank" rel="noopener noreferrer">🎸</a></span> 
+             por 
+             
+             <span className="text-md inline mx-1"><a href="https://portfolio-fedeferrelli.vercel.app/" target="blank" rel="noopener noreferrer">Fede Mazza</a></span> 
+             </div>
+            
+        </main>
+      </div>
     )
 }
 

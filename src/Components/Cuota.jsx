@@ -35,7 +35,7 @@ function Cuota() {
 
 
   return (
-    <div className=" bg-slate-800 w-full py-4 sm:py-8">
+    <div className=" bg-slate-800 w-full border border-red-800 bg-orange-200 min-h-screen h-auto py-4 sm:py-8">
       {/* Para mobile: explicación de los requisitos para utilizar esta pantalla */
         info && (
         <div className="w-full h-screen fixed top-0 z-10 bg-slate-700/70 flex">
@@ -223,6 +223,9 @@ function Cuota() {
           )}
         </main>
       </div>
+      <main className="w-full bg-secondary flex justify-center bg-orange-500">
+
+</main>
     </div>
   );
 }

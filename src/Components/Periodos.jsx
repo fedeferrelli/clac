@@ -230,6 +230,10 @@ va*(interes / 100)/ (12 / interesTemp)<cuota ?
                 
               </div>
 
+              <div className="bg-secondary pt-8 ">
+              <p className="w-11/12 mx-auto  text-xs text-center sm:text-left text-gray-400 sm:w-1/3 sm:mx-auto"> <span className="text-sm text-gray-100">Nota:</span> dado que los números que ingresaste dan como resultado un periodo no entero (por ejemplo 2,8 ó 15,1) se redondeó dicho plazo (por ejemplo 3 ó 15) y se recalculó el valor de la cuota para manetener constante el monto financiado que ingresaste.</p>
+            </div>
+
               <Resumen
                 va={va}
                 cuota={cuota}
@@ -237,9 +241,7 @@ va*(interes / 100)/ (12 / interesTemp)<cuota ?
                 interes={interes}
                 interesTemp={interesTemp}
               />
-               <div className="bg-secondary pb-8 -mt-10">
-              <p className="w-11/12 mx-auto  text-xs text-center sm:text-left text-gray-400 sm:w-1/3 sm:mx-auto"> <span className="text-sm text-gray-100">Nota:</span> dado que los números que ingresaste dan como resultado un periodo no entero (por ejemplo 2,8 ó 15,1) se redondeó dicho plazo (por ejemplo 3 ó 15) y se recalculó el valor de la cuota para manetener constante el monto financiado que ingresaste.</p>
-            </div>
+           
             </>
             :
             <div className="w-11/12 mx-auto my-2 rounded-lg p-4 text-white text-lg text-center border border-primary sm:w-1/3 sm:mx-auto">
