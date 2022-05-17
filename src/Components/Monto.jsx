@@ -6,7 +6,7 @@ function Monto() {
   const [showResult, setShowResult] = useState(false);
 
   const [interes, setInteres] = useState("");
-  const [interesTemp, setInteresTemp] = useState(12);
+  const [interesTemp, setInteresTemp] = useState(1);
   const [va, setVA] = useState();
   const [cuota, setCuota] = useState("");
   const [periodos, setPeriodos] = useState("");

@@ -6,23 +6,25 @@ function Periodos() {
   const [showResult, setShowResult] = useState(false);
 
   const [interes, setInteres] = useState("");
-  const [interesTemp, setInteresTemp] = useState(12);
+  const [interesTemp, setInteresTemp] = useState(1);
   const [va, setVA] = useState("");
   const [cuota, setCuota] = useState("");
   const [periodos, setPeriodos] = useState("");
+  const [cuotaAux, setCuotaAux] = useState("");
 
 /* Para mobile: toggle para mostrar explicacion */
   const showInfo = () => {
     setInfo(!info);
   };
 
+  console.log(cuota)
   
   /* Calcula el plazo con decimales (paso intermedio) resultado de la pantalla y lo redondea */ 
   const calcular = () => {
     let m = interesTemp;
     let i = (interes / 100)/ (12 / m);
     let v = va;
-    let c = cuota;
+    let c = cuotaAux;
 
     let n = Math.round(Math.log(1/(1-va*i/c))/Math.log(1+i))
 
@@ -30,7 +32,7 @@ function Periodos() {
 
 /* Con el plazo recalculado (redondeado) recalcula la cuota a Pagar (para mantener el mismo valor financiado) */ 
 
-    let cuotaAPagar = (v * (i / (12 / m))) / (1 - 1 / (1 + i / (12 / m)) ** n);
+    let cuotaAPagar = (v * i  / (1 - 1 / ((1 + i ) ** n)));
     
     setCuota(cuotaAPagar);
 
@@ -38,11 +40,7 @@ function Periodos() {
  
   useEffect(() => {
     calcular();
-  }, [interesTemp, interes, va, cuota]);
-
-
-  console.log(periodos)
-  console.log(Math.round(periodos))
+  }, [interesTemp, interes, va, cuotaAux]);
 
 
 
@@ -197,7 +195,7 @@ function Periodos() {
                     className="bg-slate-800 text-primary rounded-lg h-full w-full outline-none px-4 text-lg"
                     type="number"
                     id="cuota"
-                    onChange={(e) => setCuota(e.target.value)}
+                    onChange={(e) => setCuotaAux(e.target.value)}
                   />
                 </div>
 
@@ -209,7 +207,7 @@ function Periodos() {
 {/* Muestra el resultado de la pantalla y el resumen */}
           {va !== "" && interes !== "" && cuota !== "" && (
 
-va*(interes / 100)/ (12 / interesTemp)<cuota ?
+va*(interes / 100)/ (12 / interesTemp)<cuotaAux ?
           
             <>
            
