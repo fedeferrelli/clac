@@ -24,14 +24,14 @@ function TIR() {
     let c = cuota;
     let n = periodos;
 
-    var tasaMin=-0.1
-    var tasaMax = 2;
-    var i = (tasaMin+tasaMax)/2
-    var vaPrueba = c / i * (1 - 1 / (1 + i) ** n);
-    var vaMax = c / tasaMin * (1 - 1 / (1 + tasaMin) ** n);
-    var vaMin = c / tasaMax * (1 - 1 / (1 + tasaMax) ** n);
+    let tasaMin=-0.1
+    let tasaMax = 2;
+    let i = (tasaMin+tasaMax)/2
+    let vaPrueba = c / i * (1 - 1 / (1 + i) ** n);
+    let vaMax = c / tasaMin * (1 - 1 / (1 + tasaMin) ** n);
+    let vaMin = c / tasaMax * (1 - 1 / (1 + tasaMax) ** n);
    
-    var error = Math.abs(va-vaPrueba);
+    let error = Math.abs(va-vaPrueba);
 
     if(vaMin>v  || vaMax<v ){
 

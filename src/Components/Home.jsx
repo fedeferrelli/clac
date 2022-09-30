@@ -38,6 +38,7 @@ function Home() {
                     spy={true}
                     smooth={true}
                     offset={-30}
+                    
                   >
                     Quiero Calcular
                   </LinkScroll>
@@ -115,6 +116,7 @@ function Home() {
                     </div>
                   </div>
                 </div>
+                
                 <button
                   className="m-auto  bg-secondary px-6 rounded-lg text-primary mt-4 outline-none hover:bg-slate-900 duration-300 h-12 text-xl sm:text-lg"
                   onClick={() => navigate(item.link)}
